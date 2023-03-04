@@ -18,6 +18,13 @@
       <a href="/logout">Logout</a>
       <a href="/login">Login</a>
       <a href="/users/new">Signup</a>
+
+ <div class="col-3 text-end">
+        <% if @current_user %>
+          Logged in as: <%= @current_user["first_name"] %> |
+        <% end %>
+      </div>
+
     </div>
 
     <%= yield %>
