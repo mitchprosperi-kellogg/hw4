@@ -2,8 +2,9 @@ class PostsController < ApplicationController
 
   def index
     if @current_user
-    @posts = Post.all
+    @posts = @current_user.Posts
     else 
+      redirect_to "/login"
     end
   end
   
