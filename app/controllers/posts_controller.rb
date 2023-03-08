@@ -1,7 +1,10 @@
 class PostsController < ApplicationController
 
   def index
+    if @current_user
     @posts = Post.all
+    else 
+    end
   end
   
   def new
