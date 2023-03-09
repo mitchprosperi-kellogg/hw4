@@ -1,11 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    if @current_user
-    @posts = @current_user.Posts
-    else 
-      redirect_to "/login"
-    end
+      @posts = Post.all #tried using if @current_user here to hide the posts, but it kept breaking
   end
   
   def new
@@ -23,7 +19,7 @@ class PostsController < ApplicationController
   else
     flash["notice"] = "Login first."
   end
-  redirect_to "/places/#{@post["place_id"]}"
+  redirect_to "/posts"
   end
 
 end
