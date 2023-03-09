@@ -4,14 +4,22 @@
 <% for post in @posts %>
   <h3><%= post["title"] %></h3>
   <h4><%= post["posted_on"] %></h4>
-  <p><%= post["uploaded_image"] %></p>
   <p><%= post["description"] %></p>
+  <%= debug post %>
+  <% if post.uploaded_image.attached? %>
+  <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+<% else %>
+  <img src="<%= post["image"] %>" class="img-fluid">
+<% end %>
 
 <% end %>
 
-<p>
-  <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
-</p>
+
+
+
+<div class="col-sm-3 text-end">
+  <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-success">New Post</a>
+  </div>
 
 <p>
   <a href="/places">Back to All Places</a>
