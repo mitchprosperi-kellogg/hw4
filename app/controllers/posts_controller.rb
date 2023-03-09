@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-      @posts = Post.all #tried using if @current_user here to hide the posts, but it kept breaking
+      @posts = Post.all #tried using if @current_user here with a find.by to hide the posts from non-logged in users, but it kept breaking
   end
   
   def new
